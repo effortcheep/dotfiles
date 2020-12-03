@@ -1,0 +1,34 @@
+" ------------ Mapping -------------
+nnoremap <C-u> gUiw           " 大写转换
+" ------------ searching -----------
+set hlsearch                  " 高亮搜索
+set incsearch                 " 时时搜索
+nnoremap <leader><space> :noh<CR>
+
+set ignorecase
+
+" ------------ UI ------------
+nnoremap <C-k> :xccmd toggleToolbarShown<Cr>
+nmap ,tl :xccmd toggleNavigatorsVisibility<CR>  " 左侧面板
+nmap ,td :xccmd toggleDebuggerVisibility<CR>    " 底部面板
+nmap ,hi :xcmenucmd Show Quick Help Inspector<CR> " 帮助
+
+
+" Use the system pasteboard
+set clipboard=unnamed
+
+" ------------ jj/jk/kk ------------
+inoremap jj <Esc>
+inoremap jk <Esc>
+
+nmap ,o :xccmd openQuickly<CR>               "  打开文件搜索
+noremap <C-p> :xccmd openQuickly<CR>
+
+" nmap gcc :xcmenucmd Toggle Comments<CR>
+nmap ,g :xccmd showDocumentItemsMenu<CR>     "  显示所有类方法
+nmap ,n :xccmd jumpToNextCounterpart<CR>     " .h,.m 切换
+
+nmap ,b :xccmd goBackInHistoryByCommand<CR>     " 后退
+nmap ,f :xccmd goForwardInHistoryByCommand<CR>  " 前进
+
+noremap <C-m> :xccmd editActiveRunContext<CR>
