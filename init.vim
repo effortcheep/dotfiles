@@ -32,10 +32,10 @@ set cursorline
 set tags=tags
 set noautochdir    " 注意这个自动切换目录会使rope找目录不正确，禁用，坑死我
 autocmd BufRead,BufNewFile *.py set et ts=4 sw=4 sts=4
-set tabstop=4
+set tabstop=2
 set expandtab
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set nu
 autocmd BufRead,BufNewFile *.py set et ts=4 sw=4 sts=4
 set background=dark
