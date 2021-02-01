@@ -112,7 +112,8 @@ Plug 'jiangmiao/auto-pairs'  "补全或者删除括号
 Plug 'tpope/vim-surround'    "
 Plug 'farmergreg/vim-lastplace'  "打开上次编辑位置
 Plug 'mbbill/undotree'       "撤销树
-Plug 'scrooloose/nerdcommenter'   "添加撤销注释
+" Plug 'scrooloose/nerdcommenter'   "添加撤销注释
+Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
 " 增强 ? / 搜索
@@ -507,12 +508,12 @@ let g:prettier#exec_cmd_async = 1
 let g:prettier#config#arrow_parens = 'always'
 let g:prettier#config#bracket_spacing = 'true'
 
-" ale config
+" ale config 今天检查错误显示方式
 " let g:ale_sign_error = '✗'
 " let g:ale_sign_warning = '⚡'
 let g:ale_sign_error = "\U2717"
 let g:ale_sign_warning =  "\ue009"
-let g:ale_linters = {'python': []}
+" let g:ale_linters = {'python': []}
 
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
@@ -522,7 +523,22 @@ nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 " auto BufWrite * :Autoformat
+noremap <leader>p :Autoformat<cr>:StripWhitespace<cr>
+" nnoremap <leader> :StripWhitespace<CR>
 
 " gitgutter
 " let g:gitgutter_sign_added = '▎'
@@ -531,3 +547,7 @@ nmap <leader>g] <Plug>(coc-diagnostic-next)
 " let g:gitgutter_sign_removed_first_line = '▔'
 " let g:gitgutter_sign_modified_removed = '▋'
 set updatetime=400
+
+let g:formatdef_eslint = '"SRC=eslint-temp-${RANDOM}.js; cat - >$SRC; eslint --fix $SRC >/dev/null 2>&1; cat $SRC | perl -pe \"chomp if eof\"; rm -f $SRC"'
+let g:formatters_javascript = ['eslint']
+let g:formatters_typescript = ['eslint']
