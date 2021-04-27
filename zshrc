@@ -189,3 +189,6 @@ alias disproxy='unset http_proxy https_proxy' # 取消终端代理
 alias rm="rmtrash"
 
 eval "$(scmpuff init -s)"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
