@@ -82,7 +82,7 @@ Plug 'mhinz/vim-startify'
 Plug 'w0ng/vim-hybrid'
 " Plug 'morhetz/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ryanoasis/vim-devicons'
 
