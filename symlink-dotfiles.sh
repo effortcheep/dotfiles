@@ -3,8 +3,11 @@
 echo "开始链接"
 
 ln -s zshrc ~/.zshrc
+
 ln -s env.sh ~/.env.sh
+ln -s alias.sh ~/.alias.sh
 ln -s fzf.sh ~/.fzf.sh
+
 ln -s tmux.conf ~/.tmux.conf
 ln -s xvimrc ~/.xvimrc
 

@@ -170,25 +170,28 @@ bindkey ',' autosuggest-accept
 
 # source your own shrc file if exists
 [ -f ~/.env.sh ] && source ~/.env.sh
+[ -f ~/.alias.sh ] && source ~/.alias.sh
 [ -f ~/.server.sh ] && source ~/.server.sh
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/mongodb/bin:$PATH"
-function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
-export PATH="/usr/local/opt/apr/bin:$PATH"
-export PATH="/usr/local/opt/apr-util/bin:$PATH"
-export PATH="/usr/local/mysql/bin:$PATH"
 
 # fzf config, must brew install fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias setproxy='export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;' # 设置终端代理
-
-alias disproxy='unset http_proxy https_proxy' # 取消终端代理
-alias rm="rmtrash"
-
 eval "$(scmpuff init -s)"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
+
+# 粘贴动画
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
