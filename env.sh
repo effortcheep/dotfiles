@@ -15,3 +15,4 @@ export PATH="/usr/local/opt/apr/bin:$PATH"
 export PATH="/usr/local/opt/apr-util/bin:$PATH"
 
 export PATH="/usr/local/mysql/bin:$PATH"
+export PATH="/usr/local/mysql/support-files:$PATH"

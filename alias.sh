@@ -7,6 +7,10 @@ alias tnew="tmux new -s"
 alias ta="tmux a -t"
 alias tkill="tmux kill-session -t"
 
+# tmuxp
+alias tp="tmuxp"
+alias tload="tmuxp load"
+
 # git
 alias lg="lazygit"
 

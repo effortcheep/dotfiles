@@ -1,5 +1,11 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export COMMIT_MSG_LINTER_LANG=zh-CN
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -182,6 +188,9 @@ eval "$(rbenv init -)"
 
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
+# tmuxp
+export DISABLE_AUTO_TITLE='true'
+
 # 粘贴动画
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -195,3 +204,8 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
