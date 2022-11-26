@@ -91,8 +91,8 @@ Plug 'Chiel92/vim-autoformat' " https://github.com/Chiel92/vim-autoformat for co
 Plug 'othree/html5.vim'   "html5
 Plug 'mattn/emmet-vim'    "html5
 Plug 'alvan/vim-closetag'
-Plug 'python-mode/python-mode'
-Plug 'heavenshell/vim-pydocstring'  "py 注释文档
+"Plug 'python-mode/python-mode'
+"Plug 'heavenshell/vim-pydocstring'  "py 注释文档
 Plug 'tpope/vim-commentary'
 
 " coc.nvim

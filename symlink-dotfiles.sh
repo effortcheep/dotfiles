@@ -2,14 +2,19 @@
 
 echo "开始链接"
 
-ln -s zshrc ~/.zshrc
+script_dir=$(cd $(dirname $0);pwd)
+# echo "${script_dir}/zshrc"
 
-ln -s env.sh ~/.env.sh
-ln -s alias.sh ~/.alias.sh
-ln -s fzf.sh ~/.fzf.sh
+ln -sfn /Users/effort/effort/dotfiles/zshrc ~/.zshrc
 
-ln -s tmux.conf ~/.tmux.conf
-ln -s xvimrc ~/.xvimrc
+# ln -sfn zshrc ~/.zshrc
+
+# ln -sfn env.sh ~/.env.sh
+# ln -sfn alias.sh ~/.alias.sh
+# ln -sfn fzf.sh ~/.fzf.sh
+
+# ln -s tmux.conf ~/.tmux.conf
+# ln -s xvimrc ~/.xvimrc
 
 echo "链接完成"
 # link() {
