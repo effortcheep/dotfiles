@@ -1,0 +1,222 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    // Normal & Visual 模式通用（编辑器内）
+    "bindings": {
+      // GIT
+      "space g h d": "editor::ToggleSelectedDiffHunks",
+      "space g s": "git_panel::ToggleFocus",
+
+      // 参数提示
+      "space t i": "editor::ToggleInlayHints",
+
+      // 是否换行显示
+      "space u w": "editor::ToggleSoftWrap",
+
+      // 搜索项目
+      "space f p": "projects::OpenRecent",
+      "space s w": "pane::DeploySearch",
+      // Go to file with `gf`
+      // "g f": "editor::OpenExcerpts",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    //仅 Normal 模式（编辑器内）
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      // Window movement bindings
+      // Ctrl jklk to move between panes
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // +LSP
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
+      "g t": "editor::GoToTypeDefinition",
+      "g T": "editor::GoToTypeDefinitionSplit",
+      "g r": "editor::FindAllReferences",
+      // 诊断错误信息切换
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      // TODO: Go to next/prev error
+      "] e": "editor::GoToDiagnostic",
+      "[ e": "editor::GoToPreviousDiagnostic",
+      // 打开诊断面板
+      "space x x": "diagnostics::Deploy",
+
+      // 当前文件符号列表
+      "s s": "outline::Toggle",
+      // 全项目符号搜索
+      "s S": "project_symbols::Toggle",
+
+      // +Git
+      // Git prev/next hunk
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+
+      // + Buffers
+      // 在 buffer 之间切换
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      // 关闭当前 buffer
+      "shift-q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // 关闭其它 buffers
+      "space b o": "pane::CloseOtherItems",
+      // Save file
+      "ctrl-s": "workspace::Save",
+      // File finder
+      "space space": "file_finder::Toggle",
+      // Project search
+      "space /": "pane::DeploySearch",
+      // TODO: Open other files
+      // 在 Project Panel 中定位当前文件
+      "space e": "pane::RevealInProjectPanel",
+    },
+  },
+  // Empty pane, set of keybindings that are available when there is no active editor
+  {
+    // 空 Pane 空界面时仍可快速打开文件 / 项目
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space space": "file_finder::Toggle",
+      // Open recent project
+      "space f p": "projects::OpenRecent",
+    },
+  },
+  {
+    // 给选中代码 切换注释
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    // Visual 模式
+    "bindings": {
+      // visual, visual line & visual block modes
+      "g c": "editor::ToggleComments",
+    },
+  },
+  {
+    // Insert 模式：Esc 替代
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j j": "vim::NormalBefore", // remap jj in insert mode to escape
+      "j k": "vim::NormalBefore", // remap jk in insert mode to escape
+    },
+  },
+  // Rename
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "r": "editor::Rename", // zed specific
+    },
+  },
+  // Code Action
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "a": "editor::ToggleCodeActions", // zed specific
+    },
+  },
+  // Toggle terminal
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-\\": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  // 文件树
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock",
+      // Navigate between panel
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  // 面板导航 类似 Vim 的 Ctrl+w窗口切换
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleRightDock",
+    },
+  },
+  // 运行任务
+  {
+    "context": "EmptyPane || SharedScreen || vim_mode == normal",
+    "bindings": {
+      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
+    },
+  },
+  // 快速跳转
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": ["vim::PushSneak", {}],
+      "S": ["vim::PushSneakBackward", {}],
+    },
+  },
+  // {
+  //   "context": "Editor",
+  //   "bindings": {
+  //     "ctrl-b": "project_panel::Toggle",
+  //     "ctrl-c": "editor::Copy",
+  //     "ctrl-v": "editor::Paste",
+  //     "ctrl-f": "search::FocusSearch",
+  //     // "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }]
+  //     // "shift shift": "file_finder::Toggle"
+  //   },
+  // },
+  // {
+  //   "context": "Editor && vim_mode == insert",
+  //   "bindings": {
+  //     // "j k": "vim::NormalBefore"
+  //   },
+  // },
+]
