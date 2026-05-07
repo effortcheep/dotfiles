@@ -1,0 +1,3 @@
+# --- 忽略规则 ---
+# 默认忽略 node_modules 目录 (虽然 gitignore 通常已经包含，但这更保险)
+--glob=!node_modules

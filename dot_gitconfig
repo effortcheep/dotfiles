@@ -1,0 +1,32 @@
+[user]
+	email = effort.li@so-in.com
+	name = effort.li
+[core]
+	editor = nvim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	naigate = true
+	dark = true
+	side-by-side = true
+	syntax-theme = Catppuccin Mocha
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    # 漂亮的日志视图
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[pull]
+    rebase = true 
+[merge]
+	tool = nvim
+	conflictstyle = diff3
+[mergetool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+[mergetool]
+	prompt = false

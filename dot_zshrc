@@ -1,0 +1,63 @@
+# Created by newuser for 5.9
+alias pon='source ~/.proxy-on.sh'
+alias poff='source ~/.proxy-off.sh'
+alias vi='nvim'
+alias lg='lazygit'
+
+# opencode
+export PATH=/home/effort/.opencode/bin:$PATH
+
+# zsh plugin
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# fnm 
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# uv
+. "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+# starship
+eval "$(starship init zsh)"
+
+
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# bun completions
+[ -s "/home/effort/.bun/_bun" ] && source "/home/effort/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# zsh-competion   有点问题
+# 初始化补全系统
+autoload -U compinit && compinit
+
+# 使用方向键选择补全项（按 Tab 后可用方向键选择）
+zstyle ':completion:*' menu select
+
+# 开启命令别名的补全
+setopt completealiases
+
+
+# ================= tmux 基础别名 =================
+alias t='tmux'                    # 核心简写
+alias tls='tmux ls'               # 列出会话
+alias tnew='tmux new -s'          # 新建会话: tnew mysession
+alias ta='tmux attach -t'         # 附加会话: ta mysession
+alias tk='tmux kill-session -t'   # 杀死会话: tk mysession
+alias tks='tmux kill-server'      # 强制杀死所有会话（危险操作）
+alias tre='tmux rename-session -t' # 重命名会话: tre old new
+
+# pnpm
+export PNPM_HOME="/home/effort/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
