@@ -1,11 +1,13 @@
 # dotfiles with chezmoi
 
-这个仓库用于通过 [chezmoi](https://www.chezmoi.io/) 管理个人开发环境配置（dotfiles），例如：
+这个仓库用于通过 [chezmoi](https://www.chezmoi.io/) 管理个人开发环境配置（dotfiles），当前主要包含：
 
 - `~/.zshrc`
 - `~/.gitconfig`
 - `~/.ripgreprc`
+- `~/.tmux.conf`
 - `~/.config/nvim/*`
+- `~/.config/lazygit/config.yml`
 
 通过 `chezmoi` 可以把配置文件版本化，并安全、可重复地同步到不同机器。
 
@@ -24,7 +26,18 @@
 - `dot_zshrc`
 - `dot_gitconfig`
 - `dot_ripgreprc`
+- `dot_tmux.conf`
 - `dot_config/nvim/`
+- `dot_config/lazygit/config.yml`
+
+对应目标路径映射：
+
+- `dot_zshrc` -> `~/.zshrc`
+- `dot_gitconfig` -> `~/.gitconfig`
+- `dot_ripgreprc` -> `~/.ripgreprc`
+- `dot_tmux.conf` -> `~/.tmux.conf`
+- `dot_config/nvim/` -> `~/.config/nvim/`
+- `dot_config/lazygit/config.yml` -> `~/.config/lazygit/config.yml`
 
 ---
 
@@ -49,6 +62,14 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 ```bash
 chezmoi init <your-repo-url>
 ```
+
+也可以使用“一条命令安装并初始化+应用”（适合新机器）：
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply effortcheep
+```
+
+如果你希望更稳妥（先检查再应用），可以去掉 `--apply`，执行后先 `chezmoi diff`，确认再 `chezmoi apply`。
 
 如果已在本机克隆仓库并希望直接指定本地路径，也可以：
 
