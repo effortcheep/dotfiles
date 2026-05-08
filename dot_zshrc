@@ -36,13 +36,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # zsh-competion   有点问题
 # 初始化补全系统
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 # 使用方向键选择补全项（按 Tab 后可用方向键选择）
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' menu select
 
 # 开启命令别名的补全
-setopt completealiases
+# setopt completealiases
 
 
 # ================= tmux 基础别名 =================
@@ -61,3 +61,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# change editro to neovim
+export EDITOR=nvim
