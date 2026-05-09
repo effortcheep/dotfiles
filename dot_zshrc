@@ -7,9 +7,34 @@ alias lg='lazygit'
 # opencode
 export PATH=/home/effort/.opencode/bin:$PATH
 
+# ========== 1. 基础历史记录设置 ==========
+# 设置历史文件位置（通常在家目录下）
+HISTFILE=~/.zsh_history
+# 设置内存中保留的历史记录数量
+HISTSIZE=10000
+# 设置历史文件中保存的记录数量
+SAVEHIST=10000
+
+# 历史记录选项配置
+setopt appendhistory          # 允许同时写入（多终端会话）
+setopt sharehistory           # 在终端间共享历史
+setopt incappendhistory       # 立即写入，而不是等退出
+setopt hist_ignore_dups       # 去除连续重复的命令
+setopt hist_ignore_space      # 忽略带空格的命令（方便隐藏敏感信息）
+
+# ========== 2. 补全系统设置 (compinit) ==========
+# 加载补全系统模块
+autoload -Uz compinit
+compinit
+
+# 补全行为：启用菜单选择，如果不唯一则列出
+zstyle ':completion:*' menu select
+# 忽略补全中的斜线变化
+zstyle ':completion:*' special-dirs true
+
 # zsh plugin
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # fnm 
