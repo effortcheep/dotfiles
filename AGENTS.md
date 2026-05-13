@@ -24,6 +24,7 @@ chezmoi dotfiles 仓库，管理个人开发环境配置。不是代码项目，
 | `dot_tmux.conf` | `~/.tmux.conf` |
 | `dot_config/nvim/` | `~/.config/nvim/` |
 | `dot_config/lazygit/config.yml` | `~/.config/lazygit/config.yml` |
+| `dot_agents/` | `~/.agents/` |
 
 ## 提交规范
 
