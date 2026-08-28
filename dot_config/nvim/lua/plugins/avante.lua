@@ -31,7 +31,7 @@ vim.pack.add({
 
 -- 3. 配置
 require("avante").setup({
-  provider = "claude", -- 默认 provider，可用 :AvanteSwitchProvider 切换
+  provider = "pi", -- 默认 provider = pi（ACP），可用 :AvanteSwitchProvider 切换
   instructions_file = "avante.md", -- 项目根目录的指令文件
   behaviour = {
     auto_suggestions = false, -- 关闭高成本的内联建议（需单独开）

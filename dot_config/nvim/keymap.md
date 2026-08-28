@@ -107,6 +107,71 @@
 | `<leader>ds` | 加载调试功能 |
 | `<leader>Cp` | 打开命令面板 |
 
+## Avante AI（AI 助手，默认 provider = pi）
+
+### 全局快捷键
+
+| 快捷键 | 功能 |
+|--------|------|
+| `<leader>aa` | 侧边栏提问（AvanteAsk） |
+| `<leader>ac` | 新聊天（AvanteChatNew） |
+| `<leader>af` | 切换侧边栏焦点（AvanteFocus） |
+| `<leader>at` | 开关侧边栏（AvanteToggle） |
+| `<leader>an` | 新建提问 |
+| `<leader>ae` | 编辑选中的代码块 |
+| `<leader>aS` | 停止当前 AI 请求 |
+| `<leader>ad` | 切换调试模式 |
+| `<leader>as` | 切换建议显示 |
+| `<leader>aR` | 切换 repo map |
+| `<leader>a?` | 选择模型 |
+| `<leader>aM` | 选择 ACP agent 模型 |
+| `<leader>am` | 选择 ACP agent 模式 |
+| `<leader>ah` | 选择聊天历史 |
+| `<leader>ar` | 刷新侧边栏 |
+| `<leader>aB` | 添加所有 buffer 到选中文件 |
+| `<leader>az` | Zen 模式 |
+
+### 侧边栏内（光标在侧边栏时）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `]p` / `[p` | 下一个 / 上一个 prompt |
+| `A` | 应用全部 |
+| `a` | 应用光标处的代码块 |
+| `r` | 重试用户请求 |
+| `e` | 编辑用户请求 |
+| `<Tab>` / `<S-Tab>` | 切换窗口 |
+| `x` | 切换代码窗口 |
+| `d` | 移除文件 |
+| `@` | 添加文件 |
+| `q` | 关闭侧边栏 |
+
+### 冲突解决（确认窗口）
+
+| 快捷键 | 功能 |
+|--------|------|
+| `co` | 保留 ours |
+| `ct` | 保留 theirs |
+| `ca` | 全部 theirs |
+| `cb` | 两者都要 |
+| `cc` | 光标处 |
+| `]x` / `[x` | 下一个 / 上一个冲突 |
+| `<C-w>f` | 聚焦确认窗口 |
+| `c` / `r` / `i` | 确认代码 / 响应 / 输入 |
+
+### 常用命令
+
+| 命令 | 功能 |
+|--------|------|
+| `:AvanteSwitchProvider` | 切换 provider（交互式选择，含 pi） |
+| `:AvanteChat` / `:AvanteChatNew` | 开始 / 新建聊天 |
+| `:AvanteAsk` | 直接提问 |
+| `:AvanteToggle` / `:AvanteFocus` | 开关 / 聚焦侧边栏 |
+| `:AvanteHistory` | 查看聊天历史 |
+| `:AvanteEdit` | 编辑选中的代码块 |
+| `:AvanteModels` | 查看模型列表 |
+| `:AvanteStop` | 停止当前请求 |
+
 ## 移动
 
 | 快捷键 | 功能 |
