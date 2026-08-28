@@ -37,6 +37,19 @@ require("avante").setup({
     auto_suggestions = false, -- 关闭高成本的内联建议（需单独开）
     auto_set_keymaps = true, -- 使用 avante 默认快捷键（<leader>a*）
   },
+  -- pi 通过 pi-acp（ACP 适配器）接入，:AvanteSwitchProvider 里选 pi
+  acp_providers = {
+    ["pi"] = {
+      command = "pi-acp",
+      args = {},
+      env = {
+        NODE_NO_WARNINGS = "1",
+        HOME = os.getenv("HOME"),
+        PATH = os.getenv("PATH"),
+      },
+      -- pi 自己管理凭证（~/.pi/agent/settings.json），无需 auth_method
+    },
+  },
   -- 复用已有的 snacks.nvim 作为输入框和选择器
   input = {
     provider = "snacks",
