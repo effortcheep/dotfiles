@@ -1,6 +1,8 @@
 vim.pack.add({
     { src = "https://github.com/archie-judd/blink-cmp-words" },
     { src = "https://github.com/saghen/blink.cmp", version = 'v1.8.0' },
+    -- avante.nvim 的 @提及 / /命令 / #快捷方式 补全源
+    { src = "https://github.com/Kaiser-Yang/blink-cmp-avante" },
 })
 
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
@@ -40,12 +42,20 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
                 },
             },
             sources = {
+                default = { "lsp", "path", "snippets", "buffer", "avante" },
                 providers = {
                     snippets = {
                         score_offset = 1000,
                         should_show_items = function(ctx) -- avoid triggering snippets after . " ' chars.
                             return ctx.trigger.initial_kind ~= "trigger_character"
                         end,
+                    },
+                    -- avante 补全源（只在 AvanteInput 缓冲区激活）
+                    avante = {
+                        name = "Avante",
+                        module = "blink-cmp-avante",
+                        score_offset = 1000,
+                        opts = {},
                     },
                     -- Use the thesaurus source
                     thesaurus = {

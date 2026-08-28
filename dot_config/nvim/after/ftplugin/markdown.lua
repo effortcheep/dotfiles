@@ -3,6 +3,8 @@ if vim.b.did_my_ftplugin then
 end
 vim.b.did_my_ftplugin = true
 require("render-markdown").setup({
+	-- 同时作用于 avante.nvim 的 Avante 文件类型
+	file_types = { "markdown", "Avante" },
 	callout = {
 		abstract = {
 			raw = "[!ABSTRACT]",
