@@ -81,6 +81,6 @@ local map = function(mode, key, func, desc)
 end
 -- 打开/聚焦侧边栏
 map("n", "<leader>aa", "<cmd>AvanteAsk<cr>", "Avante: 侧边栏提问")
-map("n", "<leader>ac", "<cmd>AvanteChatNew<cr>", "Avante: 新聊天")
 map("n", "<leader>af", "<cmd>AvanteFocus<cr>", "Avante: 切换侧边栏焦点")
 map("n", "<leader>at", "<cmd>AvanteToggle<cr>", "Avante: 开关侧边栏")
+-- 注：<leader>ac 保留 avante 默认的“添加当前 buffer 到选中文件”

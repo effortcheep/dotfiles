@@ -114,7 +114,7 @@
 | 快捷键 | 功能 |
 |--------|------|
 | `<leader>aa` | 侧边栏提问（AvanteAsk） |
-| `<leader>ac` | 新聊天（AvanteChatNew） |
+| `<leader>ac` | 添加当前 buffer 到选中文件 |
 | `<leader>af` | 切换侧边栏焦点（AvanteFocus） |
 | `<leader>at` | 开关侧边栏（AvanteToggle） |
 | `<leader>an` | 新建提问 |
