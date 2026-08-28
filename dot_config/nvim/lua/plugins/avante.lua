@@ -46,6 +46,15 @@ require("avante").setup({
         NODE_NO_WARNINGS = "1",
         HOME = os.getenv("HOME"),
         PATH = os.getenv("PATH"),
+        -- avante 是替换子进程环境，不是继承，所以代理变量必须显式传下去
+        http_proxy = os.getenv("http_proxy"),
+        https_proxy = os.getenv("https_proxy"),
+        all_proxy = os.getenv("all_proxy"),
+        no_proxy = os.getenv("no_proxy"),
+        HTTP_PROXY = os.getenv("HTTP_PROXY"),
+        HTTPS_PROXY = os.getenv("HTTPS_PROXY"),
+        ALL_PROXY = os.getenv("ALL_PROXY"),
+        NO_PROXY = os.getenv("NO_PROXY"),
       },
       -- pi 自己管理凭证（~/.pi/agent/settings.json），无需 auth_method
     },
