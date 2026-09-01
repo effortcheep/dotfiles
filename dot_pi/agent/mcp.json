@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "lifecycle": "eager"
+    },
+    "searchcode": {
+      "url": "https://api.searchcode.com/v1/mcp"
+    }
+  }
+}

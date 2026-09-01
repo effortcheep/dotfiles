@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.84.4",
+  "theme": "catppuccin-mocha",
+  "defaultProvider": "siliconflow",
+  "defaultModel": "deepseek-v4-flash",
+  "packages": [
+    "npm:pi-open-tui",
+    "npm:@firstpick/pi-themes-bundle",
+    "npm:@ff-labs/pi-fff",
+    "npm:@narumitw/pi-btw",
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:@upstash/context7-pi",
+    "npm:pi-skillful"
+  ]
+}

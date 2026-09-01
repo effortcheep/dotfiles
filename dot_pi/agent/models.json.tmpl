@@ -1,0 +1,39 @@
+{
+  "providers": {
+    "chat.b.ai": {
+      "baseUrl": "https://api.b.ai/v1",
+      "api": "openai-completions",
+      "apiKey": "{{ env "PI_API_KEY_CHATBAI" }}",
+      "authHeader": true,
+      "models": [
+        { "id": "deepseek-v4-flash", "name": "deepseek-v4-flash", "contextWindow": 1000000 }
+      ]
+    },
+    "free.empero.org": {
+      "baseUrl": "https://free.empero.org/v1",
+      "api": "openai-completions",
+      "apiKey": "free",
+      "authHeader": true,
+      "models": [
+        { "id": "glm-5.3-flash", "name": "glm-5.3-flash", "contextWindow": 1000000 },
+        { "id": "qwen3.8-flash", "name": "qwen3.8-flash", "contextWindow": 1000000 }
+      ]
+    },
+    "anytrouter": {
+      "baseUrl": "https://anyrouter.top",
+      "api": "anthropic-messages",
+      "apiKey": "{{ env "PI_API_KEY_ANYROUTER" }}",
+      "models": [
+        { "id": "claude-opus-4-7", "name": "claude-opus-4-6", "contextWindow": 1000000 }
+      ]
+    },
+    "agentrouter": {
+      "baseUrl": "https://anyrouter.top/v1",
+      "api": "openai-completions",
+      "apiKey": "{{ env "PI_API_KEY_ANYROUTER" }}",
+      "models": [
+        { "id": "gpt-5.6-sol", "name": "gpt-5.6-sol" }
+      ]
+    }
+  }
+}

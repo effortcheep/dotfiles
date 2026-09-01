@@ -27,6 +27,13 @@ chezmoi dotfiles 仓库，管理个人开发环境配置。不是代码项目，
 | `dot_agents/` | `~/.agents/` |
 | `dot_config/opencode/AGENTS.md` | `~/.config/opencode/AGENTS.md` |
 | `dot_config/opencode/agent/` | `~/.config/opencode/agent/` |
+| `dot_pi/agent/settings.json` | `~/.pi/agent/settings.json` |
+| `dot_pi/agent/mcp.json` | `~/.pi/agent/mcp.json` |
+| `dot_pi/agent/open-tui.json` | `~/.pi/agent/open-tui.json` |
+| `dot_pi/agent/extensions/rtk.ts` | `~/.pi/agent/extensions/rtk.ts` |
+| `dot_pi/agent/extensions/skillful-install.json` | `~/.pi/agent/extensions/skillful-install.json` |
+| `dot_pi/agent/npm/package.json` | `~/.pi/agent/npm/package.json` |
+| `dot_pi/agent/models.json.tmpl` | `~/.pi/agent/models.json`（模板，apiKey 从 `PI_API_KEY_*` 环境变量读取，明文存 `~/.pi/.keys.env`） |
 
 ## 提交规范
 

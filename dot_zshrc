@@ -3,9 +3,33 @@ export PATH=/home/effort/.opencode/bin:$PATH
 
 SHELL_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/shell"
 
+export CARGO_PATH="$HOME/.cargo/bin"
+export PATH="$CARGO_PATH:$PATH"
+
 [ -f "$SHELL_CONFIG/history.sh" ] && source "$SHELL_CONFIG/history.sh"
 [ -f "$SHELL_CONFIG/completion.sh" ] && source "$SHELL_CONFIG/completion.sh"
 [ -f "$SHELL_CONFIG/plugins.sh" ] && source "$SHELL_CONFIG/plugins.sh"
 [ -f "$SHELL_CONFIG/tools.sh" ] && source "$SHELL_CONFIG/tools.sh"
 [ -f "$SHELL_CONFIG/aliases.sh" ] && source "$SHELL_CONFIG/aliases.sh"
 [ -f "$SHELL_CONFIG/tmux.sh" ] && source "$SHELL_CONFIG/tmux.sh"
+[ -f "$SHELL_CONFIG/env.sh" ] && source "$SHELL_CONFIG/env.sh"
+
+# bun completions
+[ -s "/home/effort/.bun/_bun" ] && source "/home/effort/.bun/_bun"
+
+# Pi
+# export PATH="/home/effort/.local/share/fnm/node-versions/v22.21.1/installation/bin:$PATH"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/effort/.local/bin:$PATH"
+
+
+# Pi models.json API keys (local only, not tracked by chezmoi/git)
+[ -f "$HOME/.pi/.keys.env" ] && source "$HOME/.pi/.keys.env"
